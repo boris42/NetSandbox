@@ -216,13 +216,18 @@ CFDataRef SecCertificateCopyPublicKeySHA1Digest(SecCertificateRef);
                 // iterate thru enumerated hashes from the manifest
                 // continue if found, cancel handshake if not,
                 // causing a kCFURLErrorUserCancelledAuthentication error
-                for ( NSString *aHash in pubKeyHashes )
+                BOOL hashFound = false;
+                for ( NSString *aHash in pubKeyHashes ) {
                     if ( [pubKeySha1Hex caseInsensitiveCompare: aHash]  == NSOrderedSame ) {
-                        [challenge.sender useCredential: [NSURLCredential credentialForTrust: challenge.protectionSpace.serverTrust] forAuthenticationChallenge: challenge];
+                        hashFound = TRUE;
                         break;
                     }
-                    else
-                        [[challenge sender] cancelAuthenticationChallenge: challenge];
+                }
+                if (hashFound) {
+                    [challenge.sender useCredential: [NSURLCredential credentialForTrust: challenge.protectionSpace.serverTrust] forAuthenticationChallenge: challenge];
+                }
+                else
+                    [[challenge sender] cancelAuthenticationChallenge: challenge];
             }
         }
     }
