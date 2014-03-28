@@ -1,7 +1,7 @@
 Improving privacy and network security on Apple mobile devices with an API for network sandboxing
-
-by Boris Herman, 2014
 ======================
+by Boris Herman, 2014
+
 
 The use of mobile devices and mobile applications has exploded in the recent years and the number of applications available for Apple smartphones and tablets has passed 1 billion within the last year. Since mobile computing is a relatively new concept many users do not consider their mobile devices as computers and likely do not consider risks when installing new applica-tions. An average user has very little information on how and which network resources are ac-cessed by the mobile applications he uses. A lot of responsibility is assumed by the user to pro-tect his personal data, to verify and trust the application developers, the network he is connect-ed to and to accept consequences for any ill-behaving applications, libraries or any of the net-work devices involved. Even if the user taking available precaution and protective measures, he can still unknowingly be subject to apps being remotely compromised and network or server attacks for which he has no protection.
 
